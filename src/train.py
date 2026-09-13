@@ -6,7 +6,7 @@ from src.models.loader import load_pretrained
 
 CKPT_IN  = "checkpoints/esrgan_1S2.pth"
 CKPT_OUT = "/kaggle/working/satsr_finetuned.pth"
-EPOCHS, BATCH, LR, N = 6, 8, 1e-4, 4000
+EPOCHS, BATCH, LR, N = 6, 2, 1e-4, 4000
 
 
 def main():
@@ -22,6 +22,7 @@ def main():
 
     opt = torch.optim.Adam(model.parameters(), lr=LR)
     crit = nn.L1Loss()
+    scaler = torch.amp.GradScaler("cuda")
 
     start = 0
     if os.path.exists(CKPT_OUT):
@@ -35,12 +36,16 @@ def main():
         t0, total = time.time(), 0.0
         for i, (lr_img, hr_img) in enumerate(loader):
             lr_img, hr_img = lr_img.to(device), hr_img.to(device)
-            opt.zero_grad()
-            loss = crit(model(lr_img), hr_img)
-            loss.backward()
-            opt.step()
+
+            opt.zero_grad(set_to_none=True)
+            with torch.amp.autocast("cuda"):
+                loss = crit(model(lr_img), hr_img)
+            scaler.scale(loss).backward()
+            scaler.step(opt)
+            scaler.update()
+
             total += loss.item()
-            if i % 10 == 0:
+            if i % 25 == 0:
                 print(f"ep {ep} step {i}/{len(loader)} loss {loss.item():.4f}",
                       flush=True)
 
