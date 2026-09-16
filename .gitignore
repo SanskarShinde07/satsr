@@ -11,3 +11,4 @@ outputs/
 .DS_Store
 .ipynb_checkpoints/
 !app/static/demos/*.tif
+app/static/uploads/
