@@ -46,7 +46,7 @@ six==1.17.0
 sympy==1.14.0
 tacoreader==0.6.5
 tacozip==0.13.0
-torch==2.14.0
+torch==2.8.0
 torchvision==0.29.0
 tqdm==4.70.0
 typing-inspection==0.4.4
