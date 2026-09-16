@@ -55,7 +55,8 @@ urllib3==2.7.0
 Werkzeug==3.1.8
 yarl==1.24.5
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.8.0
 torchvision
 numpy
 rasterio
@@ -63,7 +64,5 @@ Pillow
 matplotlib
 scikit-image
 Flask
-gradio
 fastapi
-uvicorn
 a2wsgi
