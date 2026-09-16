@@ -1,0 +1,23 @@
+[
+  {
+    "id": "urban",
+    "psnr": 27.44,
+    "ssim": 0.705,
+    "uncertainty": 0.0079,
+    "tif": true
+  },
+  {
+    "id": "mixed",
+    "psnr": 32.11,
+    "ssim": 0.826,
+    "uncertainty": 0.0048,
+    "tif": true
+  },
+  {
+    "id": "rural",
+    "psnr": 26.81,
+    "ssim": 0.804,
+    "uncertainty": 0.0084,
+    "tif": true
+  }
+]

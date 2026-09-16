@@ -1,7 +1,8 @@
 .venv/
 __pycache__/
 *.pyc
-checkpoints/
+checkpoints/*
+!checkpoints/satsr_finetuned.pth
 data/
 outputs/
 *.tif
