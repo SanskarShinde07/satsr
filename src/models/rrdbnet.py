@@ -59,6 +59,5 @@ class RRDBNet(nn.Module):
             F.interpolate(feat, scale_factor=2, mode="nearest")))
         return self.conv_last(self.lrelu(self.conv_hr(feat)))
     
-ckpt = torch.load("checkpoints/esrgan_1S2.pth", map_location="cpu")
-sd = ckpt["params_ema"]
+
 
