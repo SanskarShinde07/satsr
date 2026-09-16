@@ -7,5 +7,4 @@ Pillow
 matplotlib
 scikit-image
 Flask
-fastapi
-a2wsgi
+gunicorn
