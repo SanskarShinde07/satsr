@@ -97,7 +97,7 @@ def process():
             arr = np.asarray(img).astype(np.float32).transpose(2, 0, 1) / 255.0
 
         h, w = arr.shape[1], arr.shape[2]
-        if h > 256 or w > 256:
+        if h > 160 or w > 160:
             return jsonify({"error": f"Image too large ({w}x{h}). Max 1024x1024."}), 400
 
         x = torch.from_numpy(arr).unsqueeze(0)

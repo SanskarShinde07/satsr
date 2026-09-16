@@ -12,7 +12,7 @@ def uncertainty_map(model, x, device="cpu"):
     """
     outs = []
 
-    for k in range(4):                      # 4 rotations
+    for k in range(2):                      # 4 rotations
         for flip in (False,):         
             xi = torch.rot90(x, k, dims=(2, 3))
             if flip:
