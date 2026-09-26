@@ -6,7 +6,7 @@ from src.models.loader import load_pretrained
 
 CKPT_IN  = "checkpoints/esrgan_1S2.pth"
 CKPT_OUT = "/kaggle/working/satsr_finetuned.pth"
-EPOCHS, BATCH, LR, N = 6, 2, 1e-4, 4000
+EPOCHS, BATCH, LR, N = 3, 2, 1e-4, 8000
 
 
 def main():
